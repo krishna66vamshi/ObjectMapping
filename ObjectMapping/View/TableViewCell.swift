@@ -17,9 +17,10 @@ class TableViewCell: UITableViewCell {
     func configureCell(with result:results){
         artistNameLabel.text = result.artistName
         kindLabel.text = result.kind
-        if let url = result.artworkUrl100{
-            artistImage.sd_setImage(with: URL(string: url))
-        }
+        
+        guard let url = result.artworkUrl100 else{return}
+        artistImage.sd_setImage(with: URL(string: url))
+
     }
 
 }
